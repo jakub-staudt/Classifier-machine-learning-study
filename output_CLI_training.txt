@@ -1,0 +1,63 @@
+ython train.py mlarr_text/ --model-out model.joblib
+Loading data from: mlarr_text/
+
+=== PRELIMINARY ANALYSIS ===
+Total samples: 875
+Category          Count      %
+------------------------------
+  business          201  23.0%
+  entertainment     151  17.3%
+  politics          161  18.4%
+  sport             201  23.0%
+  tech              161  18.4%
+
+Text length (words): min=114, max=1349, mean=369, median=322
+
+=== CLASSIFICATION EXPERIMENTS ===
+
+--- Experiment: NaiveBayes  unigram  [baseline] ---
+  CV accuracy (5-fold):  0.9646  ±0.0122
+  Training accuracy:       0.9977
+
+--- Experiment: NaiveBayes  bigram ---
+  CV accuracy (5-fold):  0.9703  ±0.0142
+  Training accuracy:       0.9989
+
+--- Experiment: SVM         unigram ---
+  CV accuracy (5-fold):  0.9726  ±0.0084
+  Training accuracy:       1.0000
+
+--- Experiment: SVM         bigram ---
+  CV accuracy (5-fold):  0.9726  ±0.0076
+  Training accuracy:       1.0000
+
+--- Experiment: LogReg      bigram ---
+  CV accuracy (5-fold):  0.9703  ±0.0084
+  Training accuracy:       1.0000
+
+  ✔ Best model: SVM         unigram  (CV=0.9726)
+
+=== FINAL MODEL DETAILED EVALUATION ===
+
+Classification Report (training set):
+               precision    recall  f1-score   support
+
+     business       1.00      1.00      1.00       201
+entertainment       1.00      1.00      1.00       151
+     politics       1.00      1.00      1.00       161
+        sport       1.00      1.00      1.00       201
+         tech       1.00      1.00      1.00       161
+
+     accuracy                           1.00       875
+    macro avg       1.00      1.00      1.00       875
+ weighted avg       1.00      1.00      1.00       875
+
+Confusion Matrix (training set):
+                      business entertainment      politics         sport          tech
+  business                 201             0             0             0             0
+  entertainment              0           151             0             0             0
+  politics                   0             0           161             0             0
+  sport                      0             0             0           201             0
+  tech                       0             0             0             0           161
+
+✔ Model saved to: model.joblib

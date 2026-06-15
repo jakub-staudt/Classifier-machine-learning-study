@@ -1,0 +1,69 @@
+python classify.py model.joblib mlarr_text_test_split/
+
+Model loaded: model.joblib
+
+Loaded 905 texts from mlarr_text_test_split
+
+
+
+File                                               Predicted        True             Match
+
+----------------------------------------------------------------------------------------------------
+
+
+
+...
+
+...
+
+...
+
+...
+
+
+
+=== EVALUATION METRICS ===
+
+Accuracy: 0.9823  (889/905 correct)
+
+
+
+Classification Report:
+
+               precision    recall  f1-score   support
+
+
+
+     business       0.99      0.96      0.98       207
+
+entertainment       0.98      0.98      0.98       158
+
+     politics       0.98      0.99      0.99       172
+
+        sport       1.00      0.99      0.99       208
+
+         tech       0.96      0.99      0.98       160
+
+
+
+     accuracy                           0.98       905
+
+    macro avg       0.98      0.98      0.98       905
+
+ weighted avg       0.98      0.98      0.98       905
+
+
+
+Confusion Matrix:
+
+                      business entertainment      politics         sport          tech
+
+  business                 199             1             2             1             4
+
+  entertainment              1           155             0             0             2
+
+  politics                   1             0           171             0             0
+
+  sport                      0             2             1           205             0
+
+  tech                       0             0             1             0           159
